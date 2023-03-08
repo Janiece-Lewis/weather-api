@@ -1,5 +1,6 @@
 // api key 
 let apiKey = '3bdd81b895f457cb4ba83492d80d24b5'
+let historyEl = document.querySelector("#history")
 
 function currentWeather(city) {
     addHistorybutton(city)
@@ -32,11 +33,24 @@ function saveHistory(city) {
 // 2.add city as this btns txt
 // 3. append the btn to the history block
 function addHistorybutton(city) {
-    let historyBlock = document.createElement("history")
-   main.append ("history");
+    let historyBlock = document.createElement("button")
+    historyBlock.textContent=city
+   historyEl.append (historyBlock);
 
 }
 currentWeather('Austin')
+
+function renderSingleDay(weather){
+// 1. create a div block
+// 2. create a heading block date/city
+// 3. set text content of heading block to current city and date
+// 4. create div element
+// 5. set txt content of div to current temp. this will be in weather.temp
+// 6. create divs for high and low temp.
+// 7. append those divs to div in step 1
+// 8. append div 1 to an single-day 
+// same steps for 5 day 
+}
 
 
 function getApi(lat, lon) {
@@ -48,6 +62,7 @@ function getApi(lat, lon) {
 
         }).then(function (data) {
             console.log(data)
+            renderSingleDay(data.main)
         })
 }
 
